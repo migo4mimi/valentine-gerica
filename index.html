@@ -354,7 +354,7 @@
             
             <strong>Love, Lee</strong>
         </div>
-        <div class="small-text" style="margin-top: 30px; font-size: 1.1em;">Happy Valentine's Day, I miss you love u! 💖</div>
+        <div class="small-text" style="margin-top: 30px; font-size: 1.1em;">Happy Valentine's Day, my love! 💖</div>
     </div>
 
     <!-- Side images outside the container -->
@@ -366,31 +366,31 @@
         const maxAttempts = 15;
         let noButtonPositions = [];
         
-        // Array of meme images - you can add different image URLs for each attempt
+        // GitHub raw URLs for meme images
         const memeImages = [
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/1.gif',  // Attempt 1
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/22.gif',
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/3.gif',  // Attempt 3
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/4.gif',  // Attempt 4
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/5.gif',  // Attempt 5
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/6.gif',  // Attempt 6
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/7.gif',  // Attempt 7
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/8.gif',  // Attempt 8
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/9.gif',  // Attempt 9
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/10.gif', // Attempt 10
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/11.gif', // Attempt 11
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/12.gif', // Attempt 12
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/13.gif', // Attempt 13
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/14.gif', // Attempt 14
-            'file:///C:/Users/flores%20buddy/OneDrive/Desktop/15.gif'  // Attempt 15
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/1.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/22.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/3.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/4.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/5.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/6.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/7.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/8.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/9.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/10.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/11.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/12.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/13.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/14.gif',
+            'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/15.gif'
         ];
 
-        // Initialize positions for the No button - now it can move anywhere on screen
+        // Initialize positions for the No button
         function initializeNoButtonPositions() {
             for (let i = 0; i < maxAttempts; i++) {
                 noButtonPositions.push({
-                    left: Math.random() * 80 + 10 + '%',  // 10% to 90% from left
-                    top: Math.random() * 80 + 10 + '%'    // 10% to 90% from top
+                    left: Math.random() * 80 + 10 + '%',
+                    top: Math.random() * 80 + 10 + '%'
                 });
             }
         }
@@ -415,7 +415,7 @@
             attemptCounter.textContent = `Attempt: ${attempts}`;
             memeContainer.classList.remove('hidden');
 
-            // Set meme image based on current attempt (attempts - 1 because array is 0-indexed)
+            // Set meme image based on current attempt
             memeImage.src = memeImages[attempts - 1];
 
             // Increase Yes button size but keep No button clickable
@@ -424,25 +424,23 @@
             
             // Move No button to random position anywhere on screen
             if (attempts < maxAttempts) {
-                // Add the moving class to make it position fixed
                 noBtn.classList.add('no-btn-moving');
                 
                 const position = noButtonPositions[attempts - 1];
                 noBtn.style.left = position.left;
                 noBtn.style.top = position.top;
-                noBtn.style.transform = 'translate(-50%, -50%)'; // Center the button on its position
+                noBtn.style.transform = 'translate(-50%, -50%)';
                 noBtn.style.visibility = 'visible';
                 noBtn.style.opacity = '1';
-                noBtn.style.pointerEvents = 'auto'; // Make sure it's clickable
-                yesBtn.style.zIndex = '5';  // Keep Yes button below
+                noBtn.style.pointerEvents = 'auto';
+                yesBtn.style.zIndex = '5';
             } else {
-                // After max attempts, hide the No button and make Yes button cover everything
                 yesBtn.style.transform = 'scale(5)';
-                yesBtn.style.zIndex = '10000'; // Now Yes button goes on top
+                yesBtn.style.zIndex = '10000';
                 noBtn.style.visibility = 'hidden';
                 noBtn.style.opacity = '0';
                 noBtn.style.zIndex = '1';
-                noBtn.style.pointerEvents = 'none'; // Make it unclickable
+                noBtn.style.pointerEvents = 'none';
             }
         }
 
@@ -452,9 +450,9 @@
             createConfetti();
             createFloatingHearts();
 
-            // Set your celebration image URL here
+            // Set celebration image
             const celebrationImage = document.getElementById('celebrationImage');
-            celebrationImage.src = 'file:///C:/Users/flores%20buddy/OneDrive/Desktop/16.gif'; // Replace with your image URL
+            celebrationImage.src = 'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/16.gif';
         }
 
         function showFinalScreen() {
@@ -467,11 +465,11 @@
             
             createFloatingHearts();
 
-            // Set your couple photo URLs here - now they appear on left and right!
+            // Set couple photos
             const coupleImage1 = document.getElementById('coupleImage1');
             const coupleImage2 = document.getElementById('coupleImage2');
-            coupleImage1.src = 'file:///C:/Users/flores%20buddy/OneDrive/Desktop/yiee.jpg'; // Left side image
-            coupleImage2.src = 'file:///C:/Users/flores%20buddy/OneDrive/Desktop/17.gif'; // Right side image
+            coupleImage1.src = 'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/yiee.jpg';
+            coupleImage2.src = 'https://raw.githubusercontent.com/migo4mimi/valentine-gerica/main/17.gif';
         }
 
         function createConfetti() {
